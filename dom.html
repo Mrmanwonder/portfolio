@@ -1,0 +1,1036 @@
+<!DOCTYPE html><html lang="en" class="lenis"><head>
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systems &amp; Endurance | Tanmay Harkawat</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&amp;family=Gochi+Hand&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <meta name="description" content="Interactive cinematic portfolio experience by Tanmay Harkawat.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cpath d='M8 17.5h16M16 8v16' stroke='%233A86FF' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/global.css">:root {
+  /* Colors - Primary */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-charcoal: #111111;
+  --color-cerulean: #3A86FF;
+
+  /* Colors - Secondary */
+  --color-soft-gray: #EAEAEA;
+  --color-warm-gold: #D8A629;
+  --color-ribbon-red: #8B1E24;
+  
+  /* Colors - Translucents */
+  --color-mist: rgba(255, 255, 255, 0.08);
+  --color-glass-dark: rgba(20, 20, 20, 0.30);
+
+  /* Typography Families */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --font-accent: 'Gochi Hand', cursive;
+
+  /* Typography Scale */
+  --text-display-xl: clamp(4.75rem, 13vw, 11rem);
+  --text-display: clamp(3.75rem, 8vw, 6rem);
+  --text-h1: clamp(2.75rem, 6vw, 4rem);
+  --text-h2: clamp(2.1rem, 4.5vw, 3rem);
+  --text-h3: clamp(1.45rem, 3vw, 2rem);
+  --text-body-large: 1.25rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
+
+  /* Spacing Scale (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-24: 192px;
+
+  /* Border Radius */
+  --radius-images: 18px;
+  --radius-cards: 24px;
+  --radius-panels: 32px;
+  --radius-buttons: 999px;
+
+  /* Grid & Layout */
+  --layout-max-width: 1600px;
+  --layout-content-width: 1400px;
+  --layout-desktop-margin: var(--space-8);
+  --layout-mobile-padding: var(--space-3);
+
+  /* Motion Timing */
+  --motion-fast: 120ms;
+  --motion-normal: 300ms;
+  --motion-slow: 600ms;
+  --motion-hero-reveal: 1200ms;
+  
+  /* Easing */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* Z-Index Layers */
+  --z-background: -10;
+  --z-terrain: -5;
+  --z-scene-objects: 10;
+  --z-interactive: 20;
+  --z-ui: 30;
+  --z-cursor: 40;
+  --z-debug: 50;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: transparent;
+  /* Custom Cursor handles interactions, hide default when active */
+}
+
+/* Scrollbar Minimalist Configuration */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cerulean);
+  border-radius: var(--radius-buttons);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-cerulean) 80%, black);
+}
+
+/* Glass Material Utilities */
+
+.glass-panel {
+  background: var(--color-glass-dark);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-mist);
+  border-radius: var(--radius-panels);
+}
+
+/* Typography Base Styles */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.text-display-xl { font-size: var(--text-display-xl); }
+
+.text-display { font-size: var(--text-display); }
+
+.text-h1 { font-size: var(--text-h1); }
+
+.text-h2 { font-size: var(--text-h2); }
+
+.text-h3 { font-size: var(--text-h3); }
+
+.text-body-large { font-size: var(--text-body-large); }
+
+.text-body { font-size: var(--text-body); }
+
+.text-caption { font-size: var(--text-caption); }
+
+.font-accent {
+  font-family: var(--font-accent);
+  color: var(--color-cerulean);
+}
+
+/* Layout Utilities */
+
+.container {
+  max-width: var(--layout-content-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-desktop-margin);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--layout-mobile-padding);
+  }
+}
+
+/* Accessibility */
+
+:focus-visible {
+  outline: 2px solid var(--color-cerulean);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global Navigation & Pagination (Overlay) */
+
+.global-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 3vh 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none; /* Let clicks pass unless exactly on a link */
+}
+
+.global-nav .logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.global-nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  pointer-events: auto;
+}
+
+.global-nav .nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.global-nav .nav-links a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.global-nav .nav-links a.active {
+  color: var(--color-cerulean, #3A86FF);
+  border-bottom: 2px solid var(--color-cerulean, #3A86FF);
+  padding-bottom: 4px;
+}
+
+body[data-active-scene="hero"] .global-nav .logo {
+  color: rgba(0, 0, 0, 0.68);
+}
+
+body[data-active-scene="hero"] .global-nav .nav-links a {
+  color: rgba(0, 0, 0, 0.42);
+}
+
+body[data-active-scene="hero"] .global-nav .nav-links a.active {
+  color: var(--color-cerulean);
+}
+
+@media (max-width: 860px) {
+  .global-nav {
+    padding: 20px 24px;
+    align-items: flex-start;
+  }
+
+  .global-nav .logo {
+    max-width: 120px;
+    line-height: 1.4;
+  }
+
+  .global-nav .nav-links {
+    max-width: calc(100vw - 170px);
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+  }
+
+  .global-nav .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .global-nav .nav-links a {
+    flex: 0 0 auto;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .global-nav {
+    padding: 18px 18px;
+  }
+
+  .global-nav .logo {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+  }
+
+  .global-nav .nav-links {
+    max-width: calc(100vw - 132px);
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/tokens.css">:root {
+  /* Colors - Primary */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-charcoal: #111111;
+  --color-cerulean: #3A86FF;
+
+  /* Colors - Secondary */
+  --color-soft-gray: #EAEAEA;
+  --color-warm-gold: #D8A629;
+  --color-ribbon-red: #8B1E24;
+  
+  /* Colors - Translucents */
+  --color-mist: rgba(255, 255, 255, 0.08);
+  --color-glass-dark: rgba(20, 20, 20, 0.30);
+
+  /* Typography Families */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --font-accent: 'Gochi Hand', cursive;
+
+  /* Typography Scale */
+  --text-display-xl: clamp(4.75rem, 13vw, 11rem);
+  --text-display: clamp(3.75rem, 8vw, 6rem);
+  --text-h1: clamp(2.75rem, 6vw, 4rem);
+  --text-h2: clamp(2.1rem, 4.5vw, 3rem);
+  --text-h3: clamp(1.45rem, 3vw, 2rem);
+  --text-body-large: 1.25rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
+
+  /* Spacing Scale (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-24: 192px;
+
+  /* Border Radius */
+  --radius-images: 18px;
+  --radius-cards: 24px;
+  --radius-panels: 32px;
+  --radius-buttons: 999px;
+
+  /* Grid & Layout */
+  --layout-max-width: 1600px;
+  --layout-content-width: 1400px;
+  --layout-desktop-margin: var(--space-8);
+  --layout-mobile-padding: var(--space-3);
+
+  /* Motion Timing */
+  --motion-fast: 120ms;
+  --motion-normal: 300ms;
+  --motion-slow: 600ms;
+  --motion-hero-reveal: 1200ms;
+  
+  /* Easing */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* Z-Index Layers */
+  --z-background: -10;
+  --z-terrain: -5;
+  --z-scene-objects: 10;
+  --z-interactive: 20;
+  --z-ui: 30;
+  --z-cursor: 40;
+  --z-debug: 50;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/hero.css">.scene-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-scene-objects);
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(var(--space-4), 5vh, var(--space-8));
+  width: 100%;
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+}
+
+.hero-portrait-wrapper {
+  height: clamp(180px, 32vh, 360px);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-portrait {
+  height: 100%;
+  width: auto;
+}
+
+.hero-typography {
+  text-align: center;
+  position: relative;
+  width: min(100%, 1180px);
+}
+
+.hero-typography h1 {
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.hero-annotation {
+  position: absolute;
+  bottom: -3.25rem;
+  right: clamp(1rem, 12vw, 8rem);
+  transform: rotate(-5deg);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .scene-hero {
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    min-height: 100vh;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+
+  .hero-typography {
+    width: 100%;
+  }
+
+  .hero-typography h1 {
+    font-size: clamp(4rem, 23vw, 6rem);
+  }
+
+  .hero-annotation {
+    right: 0.5rem;
+    bottom: -3.5rem;
+    font-size: clamp(1.5rem, 9vw, 2.25rem);
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-content {
+    align-items: flex-start;
+  }
+
+  .hero-portrait-wrapper {
+    align-self: center;
+    height: 200px;
+  }
+
+  .hero-typography {
+    text-align: left;
+  }
+
+  .hero-typography h1 {
+    font-size: clamp(3.55rem, 19vw, 4.8rem);
+  }
+
+  .hero-annotation {
+    left: 28%;
+    right: auto;
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/honors.css">.scene-honors {
+  height: 150vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}
+
+.honors-content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+}
+
+.honors-typography {
+  max-width: 620px;
+}
+
+.honors-typography h2 {
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.honors-typography p {
+  max-width: 440px;
+}
+
+.achievement-panel {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.achievement-panel p.text-caption {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-cerulean);
+}
+
+.achievement-panel h2 {
+  color: var(--color-warm-gold);
+}
+
+@media (max-width: 768px) {
+  .honors-content {
+    padding-left: var(--layout-mobile-padding);
+    padding-right: var(--layout-mobile-padding);
+  }
+
+  .honors-typography h2 {
+    font-size: clamp(2.75rem, 16vw, 4rem);
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/projects.css">.scene-projects {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.projects-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.project-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  opacity: 1; /* GSAP controls this */
+}
+
+.project-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+}
+
+.project-bg-axon {
+  background: radial-gradient(circle at center, rgba(0, 100, 255, 0.2) 0%, transparent 70%);
+}
+.project-bg-optyx {
+  background: radial-gradient(circle at center, rgba(50, 255, 50, 0.1) 0%, transparent 70%);
+}
+.project-bg-study {
+  background: radial-gradient(circle at center, rgba(255, 200, 100, 0.1) 0%, transparent 70%);
+}
+
+.project-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--layout-max-width);
+  padding: var(--layout-desktop-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.project-devices {
+  position: relative;
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  perspective: 1000px;
+}
+
+.device {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-cards);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  position: absolute;
+}
+
+.device-desktop {
+  width: 80%;
+  height: 90%;
+  bottom: 10%;
+  z-index: 1;
+}
+
+.device-tablet {
+  width: 30%;
+  height: 60%;
+  right: 5%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.device-phone {
+  width: 15%;
+  height: 40%;
+  left: 10%;
+  bottom: -5%;
+  z-index: 3;
+}
+
+.project-info {
+  position: absolute;
+  top: 24%;
+  left: 8vw;
+  max-width: min(470px, 84vw);
+  opacity: 0;
+  transform: translateX(-50px);
+  text-align: left;
+  color: var(--color-white);
+}
+
+.project-info h2 {
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--color-white);
+}
+
+.project-info p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.project-kicker,
+.project-proof {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.project-kicker {
+  color: var(--color-cerulean) !important;
+  margin-bottom: var(--space-2);
+}
+
+.project-proof {
+  margin-top: var(--space-3);
+  color: var(--color-warm-gold) !important;
+}
+
+.project-metrics {
+  margin-top: var(--space-4);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .project-info {
+    top: 18%;
+    left: var(--layout-mobile-padding);
+    right: var(--layout-mobile-padding);
+    max-width: none;
+  }
+
+  .project-info h2 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/vault.css">.scene-vault {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: transparent;
+  color: var(--color-white, #fff);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.vault-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Center Titles */
+.center-titles {
+  position: absolute;
+  bottom: 7.5vh;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  mix-blend-mode: screen;
+}
+
+.center-titles h2 {
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(4rem, 7.5vw, 8.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 0 14px 36px rgba(0, 0, 0, 0.72);
+}
+
+.center-titles .subtitle {
+  color: #3A86FF;
+  font-family: var(--font-accent);
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0;
+  margin-top: -4px;
+  text-transform: none;
+  letter-spacing: 0;
+  transform: rotate(-4deg);
+}
+
+/* Side Pagination Dots */
+.side-dots {
+  position: absolute;
+  right: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-dots .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.side-dots .dot.active {
+  background: #3A86FF;
+  box-shadow: 0 0 8px #3A86FF;
+}
+
+/* Instructions */
+.vault-instructions {
+  position: absolute;
+  bottom: 4vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.vault-instructions.left {
+  left: 4vw;
+}
+
+.vault-instructions.right {
+  right: 4vw;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mouse-glyph {
+  width: 12px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  position: relative;
+  display: inline-block;
+}
+
+.mouse-glyph::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 2px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .center-titles {
+    bottom: 10vh;
+  }
+
+  .center-titles h2 {
+    font-size: clamp(3.5rem, 17vw, 5.5rem);
+  }
+
+  .center-titles .subtitle {
+    font-size: 2rem;
+  }
+
+  .vault-instructions {
+    display: none !important;
+  }
+
+  .side-dots {
+    right: 18px;
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/endurance.css">.scene-endurance {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-white);
+  pointer-events: none;
+}
+
+.endurance-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.endurance-title {
+  width: 100%;
+  padding-top: 18vh;
+  color: white;
+  text-align: center;
+}
+
+.endurance-title h2 {
+  font-size: clamp(4.25rem, 13vw, 10.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+
+.endurance-title p {
+  margin: var(--space-3) auto 0;
+  font-family: var(--font-accent);
+  color: var(--color-cerulean);
+  font-size: var(--text-h3);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.closing-text {
+  text-align: center;
+  opacity: 0; /* JS animates */
+}
+
+.signature-line {
+  font-family: var(--font-primary);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-4);
+}
+
+.signature-name {
+  font-family: var(--font-accent);
+  color: var(--color-cerulean);
+  font-size: var(--text-h3);
+}
+
+@media (max-width: 768px) {
+  .endurance-title {
+    padding-top: 12vh;
+  }
+
+  .endurance-title h2 {
+    font-size: clamp(3.5rem, 18vw, 5.8rem);
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/mrman/Downloads/portfolio/src/styles/cursor.css">body.has-custom-cursor {
+  cursor: none;
+}
+
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor .arsenal-item,
+body.has-custom-cursor [data-magnetic] {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, border 0.3s;
+}
+
+.cursor-hover {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid var(--color-white);
+}
+
+.cursor-magnetic {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-white);
+}
+</style></head>
+
+<body class="has-custom-cursor" data-active-scene="vault">
+  <header class="global-nav">
+    <div class="logo">SYSTEMS &amp; ENDURANCE</div>
+    <nav class="nav-links">
+      <a href="#hero" class="">01 HERO</a>
+      <a href="#honors">02 HONORS</a>
+      <a href="#projects">03 PROJECTS</a>
+      <a href="#vault" class="active">04 VAULT</a>
+      <a href="#endurance">05 ENDURANCE</a>
+    </nav>
+  </header>
+
+  <div id="app">
+    <!-- Portfolio content will be injected or rendered here -->
+  <section class="scene-hero container" id="hero" data-scene-id="hero" style="translate: none; rotate: none; scale: none; transform: translate(0px, -150px); opacity: 0;">
+      <div class="hero-content">
+        <div class="hero-portrait-wrapper"><svg viewBox="0 0 500 500" class="hero-portrait" style="width: 100%; height: 100%; translate: none; rotate: none; scale: none; transform: translate3d(0.7099px, 0.4732px, 0px) rotate(0.1183deg) scale(0.9918, 1.0163);"><path d="M150,300 C150,400 350,400 350,300" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 278.932; stroke-dashoffset: 0;"></path><path d="M150,300 C130,300 130,250 150,250" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 64.3965; stroke-dashoffset: 0;"></path><path d="M350,300 C370,300 370,250 350,250" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 64.3966; stroke-dashoffset: 0;"></path><path d="M130,250 C100,100 400,100 370,250 C370,180 130,180 130,250" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 666.135; stroke-dashoffset: 96.9625;"></path><path d="M200,250 C210,240 230,240 240,250" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 43.8087; stroke-dashoffset: 43.8087; transform-origin: 0px 0px; translate: none; rotate: none; scale: none;" data-svg-origin="420 487.5" transform="matrix(1,0,0,1,0,0)"></path><path d="M260,250 C270,240 290,240 300,250" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 43.8087; stroke-dashoffset: 43.8087; transform-origin: 0px 0px; translate: none; rotate: none; scale: none;" data-svg-origin="540 487.5" transform="matrix(1,0,0,1,0,0)"></path><path d="M250,250 L250,320 L270,320" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 90; stroke-dashoffset: 90;"></path><path d="M230,350 C250,360 250,360 270,350" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="stroke-dasharray: 43.0683; stroke-dashoffset: 43.0683;"></path><path d="M230,350 C220,340 220,340 220,340" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="opacity: 0; stroke-dasharray: 14.1421; stroke-dashoffset: 14.1421;"></path><path d="M270,350 C280,340 280,340 280,340" fill="none" stroke="var(--color-cerulean)" stroke-width="3" stroke-linecap="round" style="opacity: 0; stroke-dasharray: 14.1421; stroke-dashoffset: 14.1421;"></path><circle cx="349.5809762420347" cy="244.85934428570857" r="1.3722570652485095" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -697.79, -488.346); translate: none; rotate: none; scale: none; opacity: 0.3026;" data-svg-origin="697.7897097167969 488.34609106445316" transform="matrix(1,0,0,1,-697.78971,-488.34609)"></circle><circle cx="107.23480400640464" cy="214.4028730571616" r="0.6149481506376131" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 107.235px 214.403px; transform: scale(0);"></circle><circle cx="252.16111722400655" cy="272.66236707127825" r="0.9315875347629472" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -503.391, -544.393); translate: none; rotate: none; scale: none; opacity: 0.2915;" data-svg-origin="503.3905227050781 544.3927739257813" transform="matrix(1,0,0,1,-503.39052,-544.39277)"></circle><circle cx="379.43574267487486" cy="122.7713443990705" r="1.0370174197119983" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 379.436px 122.771px; transform: scale(0);"></circle><circle cx="173.4573367595478" cy="165.78971414098226" r="0.5397687617478606" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -346.375, -331.04); translate: none; rotate: none; scale: none; opacity: 0.782;" data-svg-origin="346.37457202148437 331.0399542236328" transform="matrix(1,0,0,1,-346.37457,-331.03995)"></circle><circle cx="122.72770030453104" cy="366.7954242884657" r="1.2508940310405632" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -244.205, -732.34); translate: none; rotate: none; scale: none; opacity: 0.5988;" data-svg-origin="244.204806640625 732.3395251464844" transform="matrix(1,0,0,1,-244.20481,-732.33953)"></circle><circle cx="353.3931894295291" cy="286.7903692225483" r="1.8689269743500936" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -704.917, -571.711); translate: none; rotate: none; scale: none; opacity: 0.2096;" data-svg-origin="704.9172614746094 571.7114477539062" transform="matrix(1,0,0,1,-704.91726,-571.71145)"></circle><circle cx="101.4114661431373" cy="281.259158038097" r="0.6563170324651548" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 101.411px 281.259px; transform: scale(0);"></circle><circle cx="200.93074984813745" cy="182.2634236254955" r="0.8715941541885079" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 200.931px 182.263px; transform: scale(0);"></circle><circle cx="381.85502722860485" cy="344.0867535978242" r="1.5652976913989525" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -762.145, -686.608); translate: none; rotate: none; scale: none; opacity: 0.6049;" data-svg-origin="762.1447338867188 686.6084538574219" transform="matrix(1,0,0,1,-762.14473,-686.60845)"></circle><circle cx="298.18971152120594" cy="236.96089875699502" r="1.694465209544303" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 298.19px 236.961px; transform: scale(0);"></circle><circle cx="138.82765208563202" cy="382.47395276096853" r="1.4849568212741229" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 0px 0px; transform: matrix(1, 0, 0, 1, -276.171, -763.463); translate: none; rotate: none; scale: none; opacity: 0.7445;" data-svg-origin="276.17069714355466 763.4629831542968" transform="matrix(1,0,0,1,-276.1707,-763.46298)"></circle><circle cx="104.61476452402124" cy="273.65166746338105" r="0.9536529943823381" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 104.615px 273.652px; transform: scale(0);"></circle><circle cx="291.8042818907753" cy="384.9236887154159" r="1.6325644103238206" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 291.804px 384.924px; transform: scale(0);"></circle><circle cx="257.9362305784823" cy="106.6110713303168" r="1.3786539605851063" fill="var(--color-cerulean)" opacity="0" style="transform-origin: 257.936px 106.611px; transform: scale(0);"></circle></svg></div>
+        <div class="hero-typography">
+          <h1 class="text-display-xl" style="opacity: 0;">I build <span class="font-accent">systems</span>.</h1>
+          <p class="hero-annotation font-accent text-h3" style="opacity: 0; clip-path: inset(0px 100% 0px 0px);">...and run far.</p>
+        </div>
+      </div>
+    </section><section class="scene-honors" id="honors" style="height: 150vh;" data-scene-id="honors">
+      <div class="honors-content container" style="position: sticky; top: 0; display: flex; height: 100vh; align-items: center; justify-content: space-between;">
+        <div class="honors-typography" style="flex: 1 1 0%; z-index: 10; clip-path: inset(0px 0% 0px 0px); color: var(--color-white);">
+          <h2 class="text-display">Recognized for <span class="font-accent">Excellence</span></h2>
+          <p class="text-body-large" style="margin-top: 1rem;">Awarded for outstanding contributions to scalable architectures.</p>
+        </div>
+        <div class="medal-anchor" style="flex: 1; height: 100%;"></div>
+      </div>
+    </section><section class="scene-projects" id="projects" style="height: 400vh; background: transparent;" data-scene-id="projects">
+      <div class="projects-ui" style="position: sticky; top: 0; height: 100vh; pointer-events: none; overflow: hidden;">
+        
+        <div class="project-info" id="proj-0" style="translate: none; rotate: none; scale: none; transform: translate(-50px, 0px); opacity: 0;">
+          <p class="project-kicker">Distributed telemetry</p>
+          <h2 class="text-display">AXON</h2>
+          <p class="text-body-large">Realtime data ingestion, alert routing, and observability surfaces built around failure visibility.</p>
+          <p class="project-proof">42ms p95 event path</p>
+        </div>
+
+        <div class="project-info" id="proj-1" style="translate: none; rotate: none; scale: none; transform: translate(-50px, 0px); opacity: 0;">
+          <p class="project-kicker">Computer vision interface</p>
+          <h2 class="text-display">OPTYX</h2>
+          <p class="text-body-large">OCR review flows, confidence overlays, and document verification tuned for fast human decisions.</p>
+          <p class="project-proof">18k fields reviewed</p>
+        </div>
+
+        <div class="project-info" id="proj-2" style="translate: none; rotate: none; scale: none; transform: translate(-50px, 0px); opacity: 0;">
+          <p class="project-kicker">Learning architecture</p>
+          <h2 class="text-display">STUDY SYSTEM</h2>
+          <p class="text-body-large">A structured study platform with progress maps, exam loops, and retrieval practice dashboards.</p>
+          <p class="project-proof">7 active study loops</p>
+        </div>
+
+      </div>
+    </section><section class="scene-vault" id="vault" data-scene-id="vault">
+      <div class="vault-ui">
+        <div class="center-titles">
+          <h2>The Vault</h2>
+          <p class="subtitle">222 Documents</p>
+        </div>
+
+        <div class="side-dots">
+          <div class="dot"></div>
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+
+        <div class="vault-instructions left">
+          MOVE CURSOR TO EXPLORE
+        </div>
+        <div class="vault-instructions right">
+          <span class="mouse-glyph" aria-hidden="true"></span> CLICK A DOCUMENT TO OPEN
+        </div>
+      </div>
+    </section><div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto; z-index: auto; float: none; flex-shrink: 1; display: flex; margin: 0px; inset: 0px; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 800px; height: 4200px; padding: 0px 0px 3000px;"><section class="scene-endurance" id="endurance" style="height: 1200px; background: transparent; translate: none; rotate: none; scale: none; inset: 0px auto auto 0px; margin: 0px; max-width: 800px; width: 800px; max-height: 1200px; padding: 0px; transform: translate(0px, 0px);" data-scene-id="endurance">
+      <div class="endurance-ui container" style="position: sticky; top: 0; height: 100vh; pointer-events: none; display: flex; align-items: center; justify-content: center; z-index: 10;">
+        <div class="endurance-title">
+          <h2>Endurance</h2>
+          <p>Climbing the mountain.</p>
+        </div>
+      </div>
+    </section></div></div>
+  <script type="module" src="/src/main.js"></script>
+
+
+
+<div class="custom-cursor" style="translate: none; rotate: none; scale: none; transform: translate(-50%, -50%) translate(400px, 300px);"></div><canvas id="webgl-canvas" data-engine="three.js r164" width="800" height="600" style="position: fixed; top: 0px; left: 0px; width: 800px; height: 600px; z-index: -1;"></canvas><div id="bg-charcoal" style="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; background: radial-gradient(circle, rgb(26, 24, 22) 0%, rgb(10, 10, 10) 40%, rgb(2, 2, 2) 100%); z-index: -2;"></div></body></html>

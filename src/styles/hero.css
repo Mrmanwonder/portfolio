@@ -1,0 +1,103 @@
+.scene-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-scene-objects);
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(var(--space-4), 5vh, var(--space-8));
+  width: 100%;
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+}
+
+.hero-portrait-wrapper {
+  height: clamp(180px, 32vh, 360px);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-portrait {
+  height: 100%;
+  width: auto;
+}
+
+.hero-typography {
+  text-align: center;
+  position: relative;
+  width: min(100%, 1180px);
+}
+
+.hero-typography h1 {
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.hero-annotation {
+  position: absolute;
+  bottom: -3.25rem;
+  right: clamp(1rem, 12vw, 8rem);
+  transform: rotate(-5deg);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .scene-hero {
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    min-height: 100vh;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+
+  .hero-typography {
+    width: 100%;
+  }
+
+  .hero-typography h1 {
+    font-size: clamp(4rem, 23vw, 6rem);
+  }
+
+  .hero-annotation {
+    right: 0.5rem;
+    bottom: -3.5rem;
+    font-size: clamp(1.5rem, 9vw, 2.25rem);
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-content {
+    align-items: flex-start;
+  }
+
+  .hero-portrait-wrapper {
+    align-self: center;
+    height: 200px;
+  }
+
+  .hero-typography {
+    text-align: left;
+  }
+
+  .hero-typography h1 {
+    font-size: clamp(3.55rem, 19vw, 4.8rem);
+  }
+
+  .hero-annotation {
+    left: 28%;
+    right: auto;
+  }
+}

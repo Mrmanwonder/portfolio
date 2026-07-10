@@ -1,0 +1,28 @@
+{
+  "name": "systems-and-endurance",
+  "version": "1.0.0",
+  "description": "Interactive cinematic portfolio experience",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.3.25",
+    "puppeteer": "^25.3.0",
+    "three": "^0.164.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "eslint": "^9.2.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.2.11",
+    "vitest": "^4.1.10"
+  },
+  "type": "module"
+}

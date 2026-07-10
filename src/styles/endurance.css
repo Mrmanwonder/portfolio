@@ -1,0 +1,72 @@
+.scene-endurance {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-white);
+  pointer-events: none;
+}
+
+.endurance-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.endurance-title {
+  width: 100%;
+  padding-top: 18vh;
+  color: white;
+  text-align: center;
+}
+
+.endurance-title h2 {
+  font-size: clamp(4.25rem, 13vw, 10.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+
+.endurance-title p {
+  margin: var(--space-3) auto 0;
+  font-family: var(--font-accent);
+  color: var(--color-cerulean);
+  font-size: var(--text-h3);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.closing-text {
+  text-align: center;
+  opacity: 0; /* JS animates */
+}
+
+.signature-line {
+  font-family: var(--font-primary);
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-4);
+}
+
+.signature-name {
+  font-family: var(--font-accent);
+  color: var(--color-cerulean);
+  font-size: var(--text-h3);
+}
+
+@media (max-width: 768px) {
+  .endurance-title {
+    padding-top: 12vh;
+  }
+
+  .endurance-title h2 {
+    font-size: clamp(3.5rem, 18vw, 5.8rem);
+  }
+}

@@ -1,0 +1,56 @@
+.scene-honors {
+  height: 150vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}
+
+.honors-content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+}
+
+.honors-typography {
+  max-width: 620px;
+}
+
+.honors-typography h2 {
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.honors-typography p {
+  max-width: 440px;
+}
+
+.achievement-panel {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.achievement-panel p.text-caption {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-cerulean);
+}
+
+.achievement-panel h2 {
+  color: var(--color-warm-gold);
+}
+
+@media (max-width: 768px) {
+  .honors-content {
+    padding-left: var(--layout-mobile-padding);
+    padding-right: var(--layout-mobile-padding);
+  }
+
+  .honors-typography h2 {
+    font-size: clamp(2.75rem, 16vw, 4rem);
+  }
+}

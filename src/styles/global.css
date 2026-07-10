@@ -1,0 +1,200 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: transparent;
+  /* Custom Cursor handles interactions, hide default when active */
+}
+
+/* Scrollbar Minimalist Configuration */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cerulean);
+  border-radius: var(--radius-buttons);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-cerulean) 80%, black);
+}
+
+/* Glass Material Utilities */
+.glass-panel {
+  background: var(--color-glass-dark);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-mist);
+  border-radius: var(--radius-panels);
+}
+
+/* Typography Base Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.text-display-xl { font-size: var(--text-display-xl); }
+.text-display { font-size: var(--text-display); }
+.text-h1 { font-size: var(--text-h1); }
+.text-h2 { font-size: var(--text-h2); }
+.text-h3 { font-size: var(--text-h3); }
+.text-body-large { font-size: var(--text-body-large); }
+.text-body { font-size: var(--text-body); }
+.text-caption { font-size: var(--text-caption); }
+
+.font-accent {
+  font-family: var(--font-accent);
+  color: var(--color-cerulean);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: var(--layout-content-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-desktop-margin);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--layout-mobile-padding);
+  }
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-cerulean);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global Navigation & Pagination (Overlay) */
+.global-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 3vh 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none; /* Let clicks pass unless exactly on a link */
+}
+
+.global-nav .logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.global-nav .nav-links {
+  display: flex;
+  gap: 2rem;
+  pointer-events: auto;
+}
+
+.global-nav .nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.global-nav .nav-links a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.global-nav .nav-links a.active {
+  color: var(--color-cerulean, #3A86FF);
+  border-bottom: 2px solid var(--color-cerulean, #3A86FF);
+  padding-bottom: 4px;
+}
+
+body[data-active-scene="hero"] .global-nav .logo {
+  color: rgba(0, 0, 0, 0.68);
+}
+
+body[data-active-scene="hero"] .global-nav .nav-links a {
+  color: rgba(0, 0, 0, 0.42);
+}
+
+body[data-active-scene="hero"] .global-nav .nav-links a.active {
+  color: var(--color-cerulean);
+}
+
+@media (max-width: 860px) {
+  .global-nav {
+    padding: 20px 24px;
+    align-items: flex-start;
+  }
+
+  .global-nav .logo {
+    max-width: 120px;
+    line-height: 1.4;
+  }
+
+  .global-nav .nav-links {
+    max-width: calc(100vw - 170px);
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+  }
+
+  .global-nav .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .global-nav .nav-links a {
+    flex: 0 0 auto;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .global-nav {
+    padding: 18px 18px;
+  }
+
+  .global-nav .logo {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+  }
+
+  .global-nav .nav-links {
+    max-width: calc(100vw - 132px);
+  }
+}

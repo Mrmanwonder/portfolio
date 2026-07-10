@@ -1,0 +1,72 @@
+:root {
+  /* Colors - Primary */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-charcoal: #111111;
+  --color-cerulean: #3A86FF;
+
+  /* Colors - Secondary */
+  --color-soft-gray: #EAEAEA;
+  --color-warm-gold: #D8A629;
+  --color-ribbon-red: #8B1E24;
+  
+  /* Colors - Translucents */
+  --color-mist: rgba(255, 255, 255, 0.08);
+  --color-glass-dark: rgba(20, 20, 20, 0.30);
+
+  /* Typography Families */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  --font-accent: 'Gochi Hand', cursive;
+
+  /* Typography Scale */
+  --text-display-xl: clamp(4.75rem, 13vw, 11rem);
+  --text-display: clamp(3.75rem, 8vw, 6rem);
+  --text-h1: clamp(2.75rem, 6vw, 4rem);
+  --text-h2: clamp(2.1rem, 4.5vw, 3rem);
+  --text-h3: clamp(1.45rem, 3vw, 2rem);
+  --text-body-large: 1.25rem;
+  --text-body: 1rem;
+  --text-caption: 0.875rem;
+
+  /* Spacing Scale (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-24: 192px;
+
+  /* Border Radius */
+  --radius-images: 18px;
+  --radius-cards: 24px;
+  --radius-panels: 32px;
+  --radius-buttons: 999px;
+
+  /* Grid & Layout */
+  --layout-max-width: 1600px;
+  --layout-content-width: 1400px;
+  --layout-desktop-margin: var(--space-8);
+  --layout-mobile-padding: var(--space-3);
+
+  /* Motion Timing */
+  --motion-fast: 120ms;
+  --motion-normal: 300ms;
+  --motion-slow: 600ms;
+  --motion-hero-reveal: 1200ms;
+  
+  /* Easing */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* Z-Index Layers */
+  --z-background: -10;
+  --z-terrain: -5;
+  --z-scene-objects: 10;
+  --z-interactive: 20;
+  --z-ui: 30;
+  --z-cursor: 40;
+  --z-debug: 50;
+}

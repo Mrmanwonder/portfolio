@@ -1,0 +1,158 @@
+.scene-projects {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+.projects-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.project-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  opacity: 1; /* GSAP controls this */
+}
+
+.project-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+}
+
+.project-bg-axon {
+  background: radial-gradient(circle at center, rgba(0, 100, 255, 0.2) 0%, transparent 70%);
+}
+.project-bg-optyx {
+  background: radial-gradient(circle at center, rgba(50, 255, 50, 0.1) 0%, transparent 70%);
+}
+.project-bg-study {
+  background: radial-gradient(circle at center, rgba(255, 200, 100, 0.1) 0%, transparent 70%);
+}
+
+.project-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--layout-max-width);
+  padding: var(--layout-desktop-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.project-devices {
+  position: relative;
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  perspective: 1000px;
+}
+
+.device {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-cards);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  position: absolute;
+}
+
+.device-desktop {
+  width: 80%;
+  height: 90%;
+  bottom: 10%;
+  z-index: 1;
+}
+
+.device-tablet {
+  width: 30%;
+  height: 60%;
+  right: 5%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.device-phone {
+  width: 15%;
+  height: 40%;
+  left: 10%;
+  bottom: -5%;
+  z-index: 3;
+}
+
+.project-info {
+  position: absolute;
+  top: 24%;
+  left: 8vw;
+  max-width: min(470px, 84vw);
+  opacity: 0;
+  transform: translateX(-50px);
+  text-align: left;
+  color: var(--color-white);
+}
+
+.project-info h2 {
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: var(--color-white);
+}
+
+.project-info p {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.project-kicker,
+.project-proof {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.project-kicker {
+  color: var(--color-cerulean) !important;
+  margin-bottom: var(--space-2);
+}
+
+.project-proof {
+  margin-top: var(--space-3);
+  color: var(--color-warm-gold) !important;
+}
+
+.project-metrics {
+  margin-top: var(--space-4);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .project-info {
+    top: 18%;
+    left: var(--layout-mobile-padding);
+    right: var(--layout-mobile-padding);
+    max-width: none;
+  }
+
+  .project-info h2 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+}
